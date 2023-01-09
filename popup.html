@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+</head>
+<body>
+<form>
+<table>
+
+<tr>
+<td>地址</td>
+<td colspan=3><input id="url" name="url"/></td>
+</tr>
+<tr>
+<td>用户名</td>
+<td colspan=3><input id="url" name="url"/></td>
+</tr>
+<tr>
+<td>密码</td>
+<td colspan=3><input id="url" name="url"/></td>
+</tr>
+</table>
+</form>
+<button id="submit">提交</button>
+
+</body>
+<script type="javascript">
+let submit = document.getElementId('submit');
+
+submit.onclick = function(){
+alert('submit');
+	chrome.runtime.sendMessage(
+  {
+    // 里面的值应该可以自定义，用于判断哪个请求之类的
+    type: 'fetch',
+    url: 'https://hn.iflytektstd.com/jenkins/login'
+  },
+  response => JSON.parse(response.text()));
+}
+</script>
+</html>
